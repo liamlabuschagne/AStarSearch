@@ -27,6 +27,7 @@ Best path found:
 f value:3.697580289865253
 Search took 4ms to run.
 ```
+**Note:** Since we are using the built-in PriorityQueue from the java.util standard library we had to implement the Comparable interface in our Path class. This involved overriding a compareTo method which returns an integer rather than a double like we use internally to store the position of the stars, this means there is a small chance that a path with an f value of something ending with 0.49999 or lower will be rounded down and potentially change which star is added to the final path slightly altering the final cost of the path. In saying this, we have determined this change to be negligible.
 
 ### Windowed Output
 Below is the output for the path between point 3 and 61 with a D of 9 using the spiral galaxy dataset. As you can see from the image it includes a window containing all the stars represented as yellow circles labelled in accordance with their row within the dataset and the best path between start and end represented by a red line.
