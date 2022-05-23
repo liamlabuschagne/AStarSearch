@@ -15,7 +15,6 @@ class Stars {
     private static int start = -1;
     private static int endOriginal = -1;
     private static int end = -1;
-    private Path bestPath;
     public static final int SCALING_FACTOR = 10;
     private static final int MAX_DIMENSION = 100;
     // 0 - (0,0) in top left and indexing of 1
@@ -113,35 +112,49 @@ class Stars {
         }
 
         // Draw our best path
-        if (bestPath != null) {
+        if (bestPath != null && bestPath.stars.size() > 0) {
             bestPath.draw(g, type);
         }
     }
 
     public static Path startSearch(int type) {
+        boolean doSearch = true;
         // Set appropriate start values based on type
         if (type == 0 || type == 2) {
             start = startOriginal - 1;
             end = endOriginal - 1;
-            System.out.println("Searching based on 1 based index");
+            System.out.println("Searching based on 1 based index:");
+            // Means value wasn't entered for 1 based indexing
+            if (start < 0 || end < 0){
+                doSearch = false;
+                System.out.println("Entered indexs weren't 1 based indexs");
+            }
         } else {
             start = startOriginal;
             end = endOriginal;
-            System.out.println("Searching based on 0 based index");
+            System.out.println("Searching based on 0 based index:");
+            
         }
 
+        Path bestPath = null;
 
-        final long startTime = System.currentTimeMillis();
-        Path bestPath = doAStarSearch();
-        if (bestPath.isEmpty()) {
-            System.out.println("No solution found.");
-        } else {
-            System.out.println("Best path found:\n" + bestPath);
-        }
-        final long endTime = System.currentTimeMillis();
-        System.out.println("Search took " + (endTime - startTime) + "ms to run.");
+        if (doSearch){
+            final long startTime = System.currentTimeMillis();
+            bestPath = doAStarSearch();
+            if (bestPath.isEmpty()) {
+                System.out.println("No solution found.");
+            } else {
+                System.out.println("Best path found:\n" + bestPath);
+            }
+            final long endTime = System.currentTimeMillis();
+            System.out.println("Search took " + (endTime - startTime) + "ms to run.");
+        }     
 
+        System.out.println();
+        
         return bestPath;
+        
+
     }
 
     public static void main(String[] args) throws InterruptedException {

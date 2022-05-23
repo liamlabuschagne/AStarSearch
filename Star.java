@@ -38,7 +38,7 @@ class Star {
         if (type == 2 || type == 3)
             invert = -1;
         g.setColor(Color.YELLOW);
-        g.fillOval((int) x * Stars.SCALING_FACTOR - 5, ((int) y * Stars.SCALING_FACTOR - (5 * invert)) * invert, 10, 10);
+        g.fillOval((int) x * Stars.SCALING_FACTOR - 5 + 20, ((int) y * Stars.SCALING_FACTOR - (5 * invert) + 20) * invert, 10, 10);
         int xOffset = -10;
         int yOffset = -10;
         if (x < 10 / Stars.SCALING_FACTOR) {
@@ -48,8 +48,8 @@ class Star {
             yOffset = 20;
         }
         g.setColor(Color.WHITE);
-        g.drawString(Integer.toString(label), (int) x * Stars.SCALING_FACTOR + xOffset,
-                ((int) y * Stars.SCALING_FACTOR + (yOffset * invert)) * invert);
+        g.drawString(Integer.toString(label), (int) x * Stars.SCALING_FACTOR + xOffset + 20,
+                ((int) y * Stars.SCALING_FACTOR + (yOffset * invert) + 20) * invert);
     }
 
     public void drawLineTo(Star other, Graphics g, int type) {
@@ -57,8 +57,8 @@ class Star {
         if (type == 2 || type == 3)
             invert = -1;
         g.setColor(Color.RED);
-        g.drawLine((int) x * Stars.SCALING_FACTOR, ((int) y * Stars.SCALING_FACTOR) * invert, (int) other.x * Stars.SCALING_FACTOR,
-                ((int) other.y * Stars.SCALING_FACTOR) * invert);
+        g.drawLine((int) x * Stars.SCALING_FACTOR + 20, ((int) y * Stars.SCALING_FACTOR + 20) * invert, (int) other.x * Stars.SCALING_FACTOR + 20,
+                ((int) other.y * Stars.SCALING_FACTOR + 20) * invert);
     }
 
 }
