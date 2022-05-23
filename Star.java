@@ -1,5 +1,6 @@
+// 1575313 - Liam Labuschagne
+// 1544572 - Charles Annals
 import java.awt.Graphics;
-import java.security.InvalidKeyException;
 import java.awt.Color;
 
 class Star {
@@ -14,7 +15,7 @@ class Star {
     }
 
     public double distanceTo(Star other) {
-        return Math.sqrt(Math.pow(Math.abs(this.x - other.x), 2) + Math.pow(Math.abs(this.y - other.y), 2));
+        return Math.sqrt(Math.pow(Math.abs(this.x - other.x), 2.0) + Math.pow(Math.abs(this.y - other.y), 2.0));
     }
 
     public double getHValue() {
@@ -37,7 +38,7 @@ class Star {
         int invert = 1;
         if (type == 2 || type == 3)
             invert = -1;
-        g.setColor(Color.YELLOW);
+        g.setColor(Color.BLUE);
         g.fillOval((int) x * Stars.SCALING_FACTOR - 5 + 20, ((int) y * Stars.SCALING_FACTOR - (5 * invert) + 20) * invert, 10, 10);
         int xOffset = -10;
         int yOffset = -10;
@@ -47,7 +48,7 @@ class Star {
         if (y < 10 / Stars.SCALING_FACTOR) {
             yOffset = 20;
         }
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.drawString(Integer.toString(label), (int) x * Stars.SCALING_FACTOR + xOffset + 20,
                 ((int) y * Stars.SCALING_FACTOR + (yOffset * invert) + 20) * invert);
     }

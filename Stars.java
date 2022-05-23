@@ -1,3 +1,5 @@
+// 1575313 - Liam Labuschagne
+// 1544572 - Charles Annals
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -132,8 +134,13 @@ class Stars {
         } else {
             start = startOriginal;
             end = endOriginal;
-            System.out.println("Searching based on 0 based index:");
-            
+            System.out.println("Searching based on 0 based index:");            
+        }
+
+        if (start >= stars.size() || end >= stars.size()){
+            doSearch = false;
+            System.out.println("An index was larger than the number of stars in the csv file.");
+            System.out.println("Number of stars: " + stars.size());
         }
 
         Path bestPath = null;

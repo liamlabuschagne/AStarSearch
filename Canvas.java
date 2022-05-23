@@ -1,3 +1,5 @@
+// 1575313 - Liam Labuschagne
+// 1544572 - Charles Annals
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -30,7 +32,7 @@ public class Canvas extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
 
         // Invert Y if required
         if(TYPE == 2 || TYPE == 3){

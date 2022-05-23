@@ -1,5 +1,6 @@
+// 1575313 - Liam Labuschagne
+// 1544572 - Charles Annals
 import java.awt.Color;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -27,7 +28,7 @@ public class Window extends JFrame{
         JPanel container = new JPanel();
         JScrollPane scrPane = new JScrollPane(container);
         getContentPane().add(scrPane);
-        container.setBackground(Color.BLACK);
+        container.setBackground(Color.WHITE);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         container.add(new Canvas(width, type));
